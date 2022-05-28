@@ -47,11 +47,17 @@
         </svg>
         <br>
         <svg width="800" height="200">
-            <rect x="50" y="20" rx="20" ry="20" width="650" height="150"
-            style="fill: red;stroke:black;stroke-width:5;opacity:0.5" />
-
+            <defs>
+                <linearGradient id="grad2" x1="0%" y1="0%" x2="100%" y2="0%">
+                    <stop offset="0%" style="stop-color:aqua;stop-opacity:1" />
+                    <stop offset="100%" style="stop-color:white;stop-opacity:1"/>
+                </linearGradient>
+            </defs>
+            <polygon points="800,10 790,200 10,200 0,10" fill="url(#grad2)"/>
+                
         </svg>
         <!--This is a test-->
+        <!-- mysql user mickaub pass c9LNMhmdKnC76HTW cluster0-->
         <div id="grad1"></div>
     </body>
 </html>
