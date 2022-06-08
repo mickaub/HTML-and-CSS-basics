@@ -1,0 +1,143 @@
+----- call at 10:00 fix
+var now = new Date();
+var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 10, 0, 0, 0) - now;
+if (millisTill10 < 0) {
+     millisTill10 += 86400000; // it's after 10am, try 10am tomorrow.
+}
+setTimeout(function(){alert("It's 10am!")}, millisTill10);
+-----call at 10:00 before fix
+<script type="text/javascript">
+
+var now = new Date();
+
+var millisTill10 = new Date(now.getFullYear(), now.getMonth(), now.getDate(), 0, 30, 0, 0) - now;
+
+setTimeout(function{openAPage(), setInterval(openAPage, 60*1000)}, millisTill10)
+
+function openAPage() {
+
+var startTime = new Date().getTime();
+var myWin = window.open("http://google.com","_blank")
+var endTime = new Date().getTime();
+var timeTaken = endTime-startTime;
+
+
+document.write("<br>button pressed@</br>")
+document.write(new Date(startTime));
+document.write("<br>page loaded@</br>")
+document.write(new Date(endTime));
+document.write("<br>time taken</br>")
+document.write(timeTaken);
+
+myWin.close()
+
+}
+
+</script>
+------ inlcude timeout
+//year, month 0-11, date, hour, min (can add ,sec,msec)
+var eta_ms = new Date(2015, 0, 21, 17, 0).getTime() - Date.now();
+var timeout = setTimeout(function(){}, eta_ms);
+
+----- web worker
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>JavaScript Web Workers API</h2>
+<p>Count numbers: <output id="result"></output></p>
+<button onclick="startWorker()">Start Worker</button> 
+<button onclick="stopWorker()">Stop Worker</button>
+
+<script>
+let w;
+
+function startWorker() {
+  if(typeof(w) == "undefined") {
+    w = new Worker("demo_workers.js");
+  }
+  w.onmessage = function(event) {
+    document.getElementById("result").innerHTML = event.data;
+  };
+}
+
+function stopWorker() { 
+  w.terminate();
+  w = undefined;
+}
+</script>
+
+</body>
+</html>
+
+-----reload
+<script>
+location.reload();
+</script>
+
+-----clock
+<!DOCTYPE html>
+<html>
+
+<body onload="startTime()">
+
+<h2>JavaScript Clock</h2>
+
+<div id="txt"></div>
+
+<script>
+function startTime() {
+  const today = new Date();
+  let h = today.getHours();
+  let m = today.getMinutes();
+  let s = today.getSeconds();
+  m = checkTime(m);
+  s = checkTime(s);
+  document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+  setTimeout(startTime, 1000);
+}
+
+function checkTime(i) {
+  if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+  return i;
+}
+</script>
+
+</body>
+</html>
+-----change background colour
+<!DOCTYPE html>
+<html>
+<head>
+
+<script>
+function bgChange(bg) {
+  document.body.style.background = bg;
+}
+</script>
+</head>
+<body>
+
+<h2>Change background color</h2>
+<p>Mouse over the squares!</p>
+
+<table style="width:300px;height:100px">
+  <tr>
+    <td onmouseover="bgChange(this.style.backgroundColor)" 
+    onmouseout="bgChange('transparent')"
+    style="background-color:Khaki">
+    </td>
+    <td onmouseover="bgChange(this.style.backgroundColor)" 
+    onmouseout="bgChange('transparent')"
+    style="background-color:PaleGreen">
+    </td>
+    <td onmouseover="bgChange(this.style.backgroundColor)" 
+    onmouseout="bgChange('transparent')"
+    style="background-color:Silver">
+    </td>
+  </tr>
+</table>
+
+</body>
+</html>
+
