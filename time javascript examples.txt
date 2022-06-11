@@ -152,4 +152,35 @@ function bgChange(bg) {
 
 </body>
 </html>
+----- change element color
 
+<html>
+  
+<head>
+    <style>
+        #Myelement {
+            background-color: black;
+            width: 500px;
+            height: 100px;
+        }
+    </style>
+</head>
+  
+<body>
+    <div id="Myelement" 
+         onclick="changeColor()">
+  </div>
+    <input name="MyColorPicker"
+           type="color"
+           id="MyColorPicker" />
+    <script>
+        function changeColor() {
+            document.getElementById(
+              "Myelement").style.backgroundColor =
+                document.getElementById(
+              "MyColorPicker").value;
+        }
+    </script>
+</body>
+  
+</html>

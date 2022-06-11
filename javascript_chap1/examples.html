@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Examples - Chapter 1</title>
+</head>
+<body>
+    <div id="array1"></div>
+    <br>
+    <div id="array2"></div>
+
+    <script> //example 1
+        hash = "";
+        let hashes = new Array();      
+        for (let i = 0; i <=6; i++)
+        {
+           hash = hash + "#"
+           console.log(hash)
+           hashes[i]=hash;
+        }
+
+        
+        //let data = ["#","##", "###"]; //array for listing items through array on html
+        let list = document.getElementById("array1");//creates list in object
+        hashes.forEach((item) => {
+            let li = document.createElement("li");
+            li.innerText = item;
+            list.appendChild(li);
+        }
+        )
+        //example 2
+        //numbers divisible by 3 print fizz, numbers divisible by 5 and not 3 print buzz
+        //numbers by 3 and 5 should then be turneinto fizzbuzz
+        let numbers = new Array();
+        for (let i2 = 0; i2 <=99; i2++ )
+        {
+            if(i2 == 0){}
+            else if(i2 % 3 == 0 && i2 % 5 != 0){
+                console.log("fizz");
+                numbers[i2] = "fizz";
+            }
+            else if(i2 % 5 == 0 && i2 % 3 != 0){
+                console.log("buzz");
+                numbers[i2] = "buzz";
+            }
+            else if(i2 % 3 == 0 && i2 % 5 == 0){
+                console.log("fizzbuzz");
+                numbers[i2] = "fizzbuzz";
+            }
+            else {console.log(i2); //brackets after else needed for both lines
+            numbers[i2]=i2;}
+        };
+        
+        /*let numbersCopy = new Array(); //copy numbers array without number 0
+        for (i3 = 0; i3 < numbers.length; i3++){
+            numbersCopy[i3] = numbers[i3+1]
+        }
+        */
+        
+        let list2 = document.getElementById("array2");//creates list in object
+            numbers.forEach((item) => {
+            let li2 = document.createElement("li");
+            li2.innerText = item;
+            list2.appendChild(li2);}        
+        )
+        ;
+    </script>
+</body>
+</html>

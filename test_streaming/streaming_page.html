@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Streaming Page</title>
+    <script> //changes background colour
+        function bgChange(bg) {
+        document.body.style.background = bg;
+        }
+    </script>
+    <style>
+        #Myelement {     
+            background-color:black;       
+            width: 300px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body onload="startTime()">
+    <h2>Change background color</h2>
+    <p>Mouse over the squares!</p>
+        
+    <table style="width:300px;height:100px"> <!--table with elements that change background colour-->
+      <tr>
+        <td onmouseover="bgChange(this.style.backgroundColor)" 
+        onmouseout="bgChange('transparent')"
+        style="background-color:Khaki">
+        </td>
+        <td onmouseover="bgChange(this.style.backgroundColor)" 
+        onmouseout="bgChange('transparent')"
+        style="background-color:PaleGreen">
+        </td>
+        <td onmouseover="bgChange(this.style.backgroundColor)" 
+        onmouseout="bgChange('transparent')"
+        style="background-color:Silver">
+        </td>
+      </tr>
+    </table>
+    <br>
+    <h2>JavaScript Clock</h2>
+    <div id="txt"></div>
+    <div id="seconds_color"></div>    
+    <!--<div id="Myelement"></div>-->
+    <div id="Myelement" 
+    onclick="changeColor()">
+    </div>
+    <input name="MyColorPicker"
+      type="color"
+      id="MyColorPicker" />
+    
+    <script>
+        function startTime() {
+          const today = new Date();
+          let h = today.getHours();
+          let m = today.getMinutes();
+          let s = today.getSeconds();
+          m = checkTime(m);
+          s = checkTime(s);
+          document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
+          setTimeout(startTime, 1000);
+          //changing object based on time
+          let second_time;
+          const time_change = document.getElementById("Myelement");         
+            if (s <= 30) {
+                second_time = "First Half";
+                time_change.style.color = "orange";                
+            }
+            else {
+                second_time = "Second Half";
+                time_change.style.color = "red";                
+            }
+            document.getElementById("seconds_color").innerHTML = second_time;
+            //document.getElementById("Myelement").style.backgroundColor = changing_box.backgroundColor;
+        }
+        
+       // function changeColor() {
+           //  document.getElementById(
+           // "Myelement").style.backgroundColor = "red"
+             //document.getElementById(
+            //"MyColorPicker").value;
+      //  }
+        
+        
+        function checkTime(i) {
+          if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
+          return i;
+        }
+        </script>
+</body>
+</html>
