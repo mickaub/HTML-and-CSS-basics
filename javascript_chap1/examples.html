@@ -4,6 +4,8 @@
     <title>Examples - Chapter 1</title>
 </head>
 <body>
+    <div id="array3"></div>
+    <br>
     <div id="array1"></div>
     <br>
     <div id="array2"></div>
@@ -61,7 +63,43 @@
             let li2 = document.createElement("li");
             li2.innerText = item;
             list2.appendChild(li2);}        
-        )
+        );
+
+        //create string 8*8 grid using new lines characters to seperate lines, space or #
+        //define binding size of 8, change to work on any size of with
+
+        let chessGrid = new Array;
+        let gridLine = new String;
+        let gridSize = 6;
+        for (let i3=0; i3 <= ((gridSize*gridSize)-1); i3++){
+            if(i3 == 0){
+                chessGrid[i3] = "";                
+                gridLine = gridLine + "#";
+            }
+            if(i3 != 0 && i3%2 == 0){
+                chessGrid[i3] = "";                
+                gridLine = gridLine + "#";
+            }            
+            if(i3%2 != 0 && i3!= 0){
+                chessGrid[i3] = "#";                
+                gridLine = gridLine + " ";
+            } 
+            if((i3+1)%gridSize == 0 && (i3+1)%(gridSize*2) != 0){
+                gridLine = gridLine + "\n ";
+            }  
+            if((i3+1)%gridSize == 0 && (i3+1)%(gridSize*2) == 0){
+                gridLine = gridLine + "\n";
+            } 
+        }
+            console.log(gridLine);     
+
+           /* let list3 = document.getElementById("array3");//creates list in object
+            chessGrid.forEach((item) => {
+            let li3 = document.createElement("li");
+            li3.innerText = item;
+            list3.appendChild(li3);}
+            );
+            */
         ;
     </script>
 </body>
