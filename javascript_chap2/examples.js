@@ -59,6 +59,11 @@ function AnyCount(a,b){
     word = b;
 }
 
+function go() {
+    var text = document.getElementById("textbox").nodeValue;
+    alert("The user typed" + text );
+}
+
 countBs("Bob");
 AnyCount("a","animals");
 
