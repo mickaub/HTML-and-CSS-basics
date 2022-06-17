@@ -6,14 +6,12 @@
         function bgChange(bg) {
         document.body.style.background = bg;
         }
-    </script>
-    <style>
-        #Myelement {     
-            background-color:black;       
-            width: 300px;
-            height: 300px;
+
+        function squareColor(sc) {
+
         }
-    </style>
+        
+    </script>
 </head>
 <body onload="startTime()">
     <h2>Change background color</h2>
@@ -38,17 +36,18 @@
     <br>
     <h2>JavaScript Clock</h2>
     <div id="txt"></div>
-    <div id="seconds_color"></div>    
-    <!--<div id="Myelement"></div>-->
-    <div id="Myelement" 
-    onclick="changeColor()">
+    <div id="seconds_color"></div> 
+    <div id="changingSquare">
     </div>
-    <input name="MyColorPicker"
+    <div id="text"></div>
+    <!--<input name="MyColorPicker"
       type="color"
-      id="MyColorPicker" />
+      id="MyColorPicker" />-->
     
     <script>
+        let squareColour = "";
         function startTime() {
+          
           const today = new Date();
           let h = today.getHours();
           let m = today.getMinutes();
@@ -57,24 +56,30 @@
           s = checkTime(s);
           document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
           setTimeout(startTime, 1000);
-          //changing object based on time
-          let second_time;
-          const time_change = document.getElementById("Myelement");         
-            if (s <= 30) {
-                second_time = "First Half";
-                time_change.style.color = "orange";                
-            }
+          //changing object based on time         
+          
+          
+          if (s <= 30) {
+                squareColour = "rgb(0,100,0)";
+              }
             else {
-                second_time = "Second Half";
-                time_change.style.color = "red";                
-            }
-            document.getElementById("seconds_color").innerHTML = second_time;
-            //document.getElementById("Myelement").style.backgroundColor = changing_box.backgroundColor;
-        }
+                squareColour = "rgb(200,200,200)";                
+            }          
+          document.getElementById('changingSquare').style.backgroundColor = squareColour;
+        }        
+
+        
+          document.getElementById('changingSquare').style.width = "300px";
+          document.getElementById('changingSquare').style.height = "300px";          
+          //changingSquare = "#changingSquare {            background-color: red; width: 300px;            height: 300px;";
+
+            //document.getElementById("seconds_color").innerHTML = second_time;
+            //document.getElementById("changingSquare").style.backgroundColor = changing_box.backgroundColor;
+        
         
        // function changeColor() {
            //  document.getElementById(
-           // "Myelement").style.backgroundColor = "red"
+           // "changingSquare").style.backgroundColor = "red"
              //document.getElementById(
             //"MyColorPicker").value;
       //  }
