@@ -6,14 +6,12 @@
         function bgChange(bg) {
         document.body.style.background = bg;
         }
-    </script>
-    <style>
-        #Myelement {     
-            background-color:black;       
-            width: 300px;
-            height: 300px;
+
+        function squareColor(sc) {
+
         }
-    </style>
+        
+    </script>
 </head>
 <body onload="startTime()">
     <h2>Change background color</h2>
@@ -40,19 +38,22 @@
     <div id="txt"></div>
     <div id="seconds_color"></div>    
     <!--<div id="Myelement"></div>-->
-    <div id="Myelement">
+    <div id="changingSquare">
     </div>
-    <input name="MyColorPicker"
+    <div id="text"></div>
+    <!--<input name="MyColorPicker"
       type="color"
       id="MyColorPicker" />
     <br>
     <div id="ytplayer"></div>
-    <!--<iframe src="https://www.youtube.com/embed/sGF6bOi1NfA" width="560" height="315" allowfullscreen="allowfullscreen"></iframe>-->
+    <iframe src="https://www.youtube.com/embed/sGF6bOi1NfA" width="560" height="315" allowfullscreen="allowfullscreen"></iframe>-->
     <div id="videoPlayer"></div>
     
     <script>
         const secondsVideo = new String;
+        let squareColour = "";
         function startTime() {
+          
           const today = new Date();
           let h = today.getHours();
           let m = today.getMinutes();
@@ -61,20 +62,23 @@
           s = checkTime(s);
           document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
           setTimeout(startTime, 1000);
-          //changing object based on time
-          let second_time;
-          const time_change = document.getElementById("Myelement");         
-            if (s <= 30) {
+          //changing object based on time         
+          
+          
+          if (s <= 30) {
+                squareColour = "rgb(0,100,0)";
                 second_time = "First Half";
-                time_change.style.color = "orange";                
-            }
+              }
             else {
                 second_time = "Second Half";
-                time_change.style.color = "red";                
+                squareColour = "rgb(200,200,200)";             
             }
             document.getElementById("seconds_color").innerHTML = second_time;
+            document.getElementById('changingSquare').style.backgroundColor = squareColour;
             //document.getElementById("Myelement").style.backgroundColor = changing_box.backgroundColor;
         }
+        document.getElementById('changingSquare').style.width = "300px";
+          document.getElementById('changingSquare').style.height = "300px";
         let videoChange = document.getElementById("videoPlayer");
         let seconds = 1;
         let currentVideo = "https://www.youtube-nocookie.com/embed/bATP39j7v5k?start=" + seconds.toString() + "&autoplay=1";
@@ -82,7 +86,7 @@
         //videoChange.src = "https://www.youtube.com/embed/sGF6bOi1NfA";
        // function changeColor() {
            //  document.getElementById(
-           // "Myelement").style.backgroundColor = "red"
+           // "changingSquare").style.backgroundColor = "red"
              //document.getElementById(
             //"MyColorPicker").value;
       //  }
