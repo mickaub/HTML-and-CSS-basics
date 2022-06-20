@@ -40,14 +40,18 @@
     <div id="txt"></div>
     <div id="seconds_color"></div>    
     <!--<div id="Myelement"></div>-->
-    <div id="Myelement" 
-    onclick="changeColor()">
+    <div id="Myelement">
     </div>
     <input name="MyColorPicker"
       type="color"
       id="MyColorPicker" />
+    <br>
+    <div id="ytplayer"></div>
+    <!--<iframe src="https://www.youtube.com/embed/sGF6bOi1NfA" width="560" height="315" allowfullscreen="allowfullscreen"></iframe>-->
+    <div id="videoPlayer"></div>
     
     <script>
+        const secondsVideo = new String;
         function startTime() {
           const today = new Date();
           let h = today.getHours();
@@ -71,7 +75,11 @@
             document.getElementById("seconds_color").innerHTML = second_time;
             //document.getElementById("Myelement").style.backgroundColor = changing_box.backgroundColor;
         }
-        
+        let videoChange = document.getElementById("videoPlayer");
+        let seconds = 1;
+        let currentVideo = "https://www.youtube-nocookie.com/embed/bATP39j7v5k?start=" + seconds.toString() + "&autoplay=1";
+        videoChange.innerHTML = "<iframe src=\"" + currentVideo +"\" width=\"560\" height=\"315\" allowfullscreen=\"allowfullscreen\"></iframe>";
+        //videoChange.src = "https://www.youtube.com/embed/sGF6bOi1NfA";
        // function changeColor() {
            //  document.getElementById(
            // "Myelement").style.backgroundColor = "red"
@@ -84,6 +92,24 @@
           if (i < 10) {i = "0" + i};  // add zero in front of numbers < 10
           return i;
         }
+
+      /*  // Load the IFrame Player API code asynchronously.
+        var tag = document.createElement('script');
+        tag.src = "https://www.youtube.com/player_api";
+        var firstScriptTag = document.getElementsByTagName('script')[0];
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+
+        // Replace the 'ytplayer' element with an <iframe> and
+        // YouTube player after the API code downloads.
+        var player;
+        function onYouTubePlayerAPIReady() {
+          player = new YT.Player('ytplayer', {
+            height: '360',
+            width: '640',
+            videoId: 'M7lc1UVf-VE'//'Cwkej79U3ek'
+            //
+          });
+        }*/
         </script>
 </body>
 </html>
