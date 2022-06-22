@@ -19,16 +19,13 @@
         
     <table style="width:300px;height:100px"> <!--table with elements that change background colour-->
       <tr>
-        <td onmouseover="bgChange(this.style.backgroundColor)" 
-        onmouseout="bgChange('transparent')"
+        <td onmouseover="bgChange(this.style.backgroundColor)"         
         style="background-color:Khaki">
         </td>
         <td onmouseover="bgChange(this.style.backgroundColor)" 
-        onmouseout="bgChange('transparent')"
         style="background-color:PaleGreen">
         </td>
-        <td onmouseover="bgChange(this.style.backgroundColor)" 
-        onmouseout="bgChange('transparent')"
+        <td onmouseover="bgChange(this.style.backgroundColor)"         
         style="background-color:Silver">
         </td>
       </tr>
@@ -48,6 +45,7 @@
     <div id="ytplayer"></div>
     <iframe src="https://www.youtube.com/embed/sGF6bOi1NfA" width="560" height="315" allowfullscreen="allowfullscreen"></iframe>-->
     <div id="videoPlayer"></div>
+    <div id="pleaseWait"></div>
     
     <script>
         const secondsVideo = new String;
@@ -73,6 +71,13 @@
                 second_time = "Second Half";
                 squareColour = "rgb(200,200,200)";             
             }
+
+          if (s>52){
+            document.getElementById("pleaseWait").innerHTML = "please wait";            
+          }
+          else {
+            document.getElementById("pleaseWait").innerHTML = "";   
+          }
             document.getElementById("seconds_color").innerHTML = second_time;
             document.getElementById('changingSquare').style.backgroundColor = squareColour;
             //document.getElementById("Myelement").style.backgroundColor = changing_box.backgroundColor;
@@ -81,7 +86,17 @@
           document.getElementById('changingSquare').style.height = "300px";
         let videoChange = document.getElementById("videoPlayer");
         let seconds = 1;
-        let currentVideo = "https://www.youtube-nocookie.com/embed/bATP39j7v5k?start=" + seconds.toString() + "&autoplay=1";
+        /*let currentVideo = "https://www.youtube-nocookie.com/embed/bATP39j7v5k?&autoplay=1&controls=0"; + seconds.toString() + "&autoplay=1";*/
+        /*let currentVideo = "https://www.youtube.com/embed/videoseries?controls=0&autoplay=1&amp;list=PLez3C2SLN66YzW9nucKom8W_Ze2atjxw6";
+        p1 mkF9Lf5_KF8
+        p2 CihyhwnRhLM
+        p3 931JP8OKK0w
+
+        p1 171s, 10m = 600, p4 = 132s, p5= 100s 197r p8 93s p16 96s 8sremain
+        https://www.youtube.com/embed/VIDEO_ID?start=15&playlist=mkF9Lf5_KF8,CihyhwnRhLM"
+        adding start after VIDEO ID? works;
+        */
+        let currentVideo = "https://www.youtube.com/embed/VIDEO_ID?start=15&playlist=mkF9Lf5_KF8,CihyhwnRhLM";
         videoChange.innerHTML = "<iframe src=\"" + currentVideo +"\" width=\"560\" height=\"315\" allowfullscreen=\"allowfullscreen\"></iframe>";
         //videoChange.src = "https://www.youtube.com/embed/sGF6bOi1NfA";
        // function changeColor() {
