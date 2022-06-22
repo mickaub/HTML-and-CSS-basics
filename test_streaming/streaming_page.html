@@ -31,6 +31,7 @@
       </tr>
     </table>
     <br>
+    
     <h2>JavaScript Clock</h2>
     <div id="txt"></div>
     <div id="seconds_color"></div>    
@@ -46,9 +47,11 @@
     <iframe src="https://www.youtube.com/embed/sGF6bOi1NfA" width="560" height="315" allowfullscreen="allowfullscreen"></iframe>-->
     <div id="videoPlayer"></div>
     <div id="pleaseWait"></div>
+    <br>
+    <div id="no"></div>
     
     <script>
-        const secondsVideo = new String;
+        let videoChoice = new String;
         let squareColour = "";
         function startTime() {
           
@@ -60,8 +63,25 @@
           s = checkTime(s);
           document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
           setTimeout(startTime, 1000);
+          let mv1 = "hN9-ZdWiKdI";
+          mv1.duration = 218;//269 start51 newduration 218
+          let mv2 = "HcUScOp_fys";
+          mv2.duration = 244;//266 start22 newduration 244
+          let ko1 = "C0MN-gf2ooM";
+          ko1.duration = 57;
+          let ko2 = "Xm1qdXMrH3c";
+          ko2.duration = 55; //26s remain
           //changing object based on time         
-          
+          if (m%10<2){
+            videoChoice = mv1;
+          }
+          if (m%10<5 && m%10>=2){
+            videoChoice = ko2;
+          }
+
+          if(m%10>=5){
+            videoChoice = ko1;
+          }
           
           if (s <= 30) {
                 squareColour = "rgb(0,100,0)";
@@ -83,9 +103,15 @@
             //document.getElementById("Myelement").style.backgroundColor = changing_box.backgroundColor;
         }
         document.getElementById('changingSquare').style.width = "300px";
-          document.getElementById('changingSquare').style.height = "300px";
-        let videoChange = document.getElementById("videoPlayer");
-        let seconds = 1;
+        document.getElementById('changingSquare').style.height = "300px";       
+        
+
+        let videoChange = document.getElementById("videoPlayer");        
+        let currentVideo = "https://www.youtube.com/embed/Xm1qdXMrH3c";
+        videoChange.innerHTML = "<iframe src=\"" + currentVideo +"\" width=\"560\" height=\"315\" allowfullscreen=\"allowfullscreen\"></iframe>";
+
+        document.getElementById("no").innerHTML = videoChoice;
+
         /*let currentVideo = "https://www.youtube-nocookie.com/embed/bATP39j7v5k?&autoplay=1&controls=0"; + seconds.toString() + "&autoplay=1";*/
         /*let currentVideo = "https://www.youtube.com/embed/videoseries?controls=0&autoplay=1&amp;list=PLez3C2SLN66YzW9nucKom8W_Ze2atjxw6";
         p1 mkF9Lf5_KF8
@@ -96,8 +122,7 @@
         https://www.youtube.com/embed/VIDEO_ID?start=15&playlist=mkF9Lf5_KF8,CihyhwnRhLM"
         adding start after VIDEO ID? works;
         */
-        let currentVideo = "https://www.youtube.com/embed/VIDEO_ID?start=15&playlist=mkF9Lf5_KF8,CihyhwnRhLM";
-        videoChange.innerHTML = "<iframe src=\"" + currentVideo +"\" width=\"560\" height=\"315\" allowfullscreen=\"allowfullscreen\"></iframe>";
+       
         //videoChange.src = "https://www.youtube.com/embed/sGF6bOi1NfA";
        // function changeColor() {
            //  document.getElementById(
