@@ -48,13 +48,14 @@
     <div id="videoPlayer"></div>
     <div id="pleaseWait"></div>
     <br>
-    <div id="no"></div>
+    <div id="no" onload="fixedTime()"></div>
     
     <script>
-        let videoChoice = new String;
+        
         let squareColour = "";
+        
         function startTime() {
-          
+                    
           const today = new Date();
           let h = today.getHours();
           let m = today.getMinutes();
@@ -63,25 +64,9 @@
           s = checkTime(s);
           document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
           setTimeout(startTime, 1000);
-          let mv1 = "hN9-ZdWiKdI";
-          mv1.duration = 218;//269 start51 newduration 218
-          let mv2 = "HcUScOp_fys";
-          mv2.duration = 244;//266 start22 newduration 244
-          let ko1 = "C0MN-gf2ooM";
-          ko1.duration = 57;
-          let ko2 = "Xm1qdXMrH3c";
-          ko2.duration = 55; //26s remain
+          
+          
           //changing object based on time         
-          if (m%10<2){
-            videoChoice = mv1;
-          }
-          if (m%10<5 && m%10>=2){
-            videoChoice = ko2;
-          }
-
-          if(m%10>=5){
-            videoChoice = ko1;
-          }
           
           if (s <= 30) {
                 squareColour = "rgb(0,100,0)";
@@ -103,15 +88,54 @@
             //document.getElementById("Myelement").style.backgroundColor = changing_box.backgroundColor;
         }
         document.getElementById('changingSquare').style.width = "300px";
-        document.getElementById('changingSquare').style.height = "300px";       
+        document.getElementById('changingSquare').style.height = "300px"; 
         
+        function fixedTime() {
+                    let videoChoice = new String;
+                    let c = "c";
 
-        let videoChange = document.getElementById("videoPlayer");        
-        let currentVideo = "https://www.youtube.com/embed/Xm1qdXMrH3c";
+                    const today = new Date();
+                    let h = today.getHours();
+                    let m = today.getMinutes();
+                    let s = today.getSeconds();
+                    m = checkTime(m);
+                    s = checkTime(s);
+                    setTimeout(fixedTime, 1000);
+                                        
+                    let mv1 = "hN9-ZdWiKdI";
+                    mv1.duration = 218;//269 start51 newduration 218
+                    let mv2 = "HcUScOp_fys";
+                    mv2.duration = 244;//266 start22 newduration 244
+                    let ko1 = "C0MN-gf2ooM";
+                    ko1.duration = 57;
+                    let ko2 = "Xm1qdXMrH3c";
+                    ko2.duration = 55; //26s remain
+          
+                    
+                    //changing object based on time         
+                    if (m%10<2){
+                      videoChoice = mv1;
+                    }
+                    if (m%10<5 && m%10>=2){
+                      videoChoice = ko2;
+                    }
+          
+                    if(m%10>=5){
+                      videoChoice = ko1;
+                    }                          
+                    console.log(1);       
+                    document.getElementById("no").innerHTML = 1;
+                      
+                      //document.getElementById("Myelement").style.backgroundColor = changing_box.backgroundColor;
+                  }
+        
+                  let videoChange = document.getElementById("videoPlayer");        
+        let currentVideo = "https://www.youtube.com/embed/hN9-ZdWiKdI" 
+        ;
         videoChange.innerHTML = "<iframe src=\"" + currentVideo +"\" width=\"560\" height=\"315\" allowfullscreen=\"allowfullscreen\"></iframe>";
 
-        document.getElementById("no").innerHTML = videoChoice;
-
+        
+        
         /*let currentVideo = "https://www.youtube-nocookie.com/embed/bATP39j7v5k?&autoplay=1&controls=0"; + seconds.toString() + "&autoplay=1";*/
         /*let currentVideo = "https://www.youtube.com/embed/videoseries?controls=0&autoplay=1&amp;list=PLez3C2SLN66YzW9nucKom8W_Ze2atjxw6";
         p1 mkF9Lf5_KF8
