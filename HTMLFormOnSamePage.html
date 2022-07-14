@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form submit to same page</title>
+        <script>
+            function showInput() {
+                document.getElementById("display").innerHTML = document.getElementById("input").value;
+            }            
+        </script>
+    </head>
+    <body>
+        <form>
+            <fieldset>
+                <legend>Type inside here:</legend>
+                <input type="text" id="input" name="input" placeholder="Insert Text Here">
+            </fieldset>           
+        </form>
+        <input type="submit" onclick="showInput();">
+        <br>
+        <label>Your input:</label>
+        <p><span id="display"></span></p>        
+    </body>
+</html>

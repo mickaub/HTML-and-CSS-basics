@@ -1,2 +1,4 @@
 HTML ideas
 form/button to scroll between sections
+add radio buttons to choose between different sections
+legend on top of radio elements to provide choices
