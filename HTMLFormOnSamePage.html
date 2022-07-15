@@ -12,6 +12,9 @@
                     document.getElementById("display").innerHTML = document.getElementById("input").value;
                 }                
             }   
+            function backgroundChange(bc) {
+               document.body.style.background = bc;
+            }
         </script>
     </head>
     <body>
@@ -19,11 +22,24 @@
             <fieldset>
                 <legend>Type inside here:</legend>
                 <input type="text" id="input" name="input" placeholder="Insert Text Here" onkeydown="showInputEnter(event);">
-            </fieldset>           
+            </fieldset>                   
         </form>
         <input type="submit" onclick="showInput();">
         <br>
         <label>Your input:</label>
-        <p><span id="display"></span></p>        
+        <p><span id="display"></span></p>   
+        <br>    
+        <form>
+            <fieldset>
+                <legend>Select a background colour here:</legend>
+                <label><input id="white" type="radio" name="backgroundColor" onclick="backgroundChange(this.style.backgroundColor)" style="background-color:white" checked>White</label>
+                <label><input id="red" type="radio" name="backgroundColor" onclick="backgroundChange(this.style.backgroundColor)"
+                style="background-color: rgb(207, 143, 132)">Red</label>
+                <label><input id="blue" type="radio" name="backgroundColor" onclick="backgroundChange(this.style.backgroundColor)"
+                style="background-color: rgb(0, 255, 221)">Blue</label>
+                <label><input id="green" type="radio" name="backgroundColor" onclick="backgroundChange(this.style.backgroundColor)"
+                    style="background-color: rgb(89, 185, 89)">Green</label>
+            </fieldset>    
+        </form> 
     </body>
 </html>
