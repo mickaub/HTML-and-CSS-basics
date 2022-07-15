@@ -3,16 +3,22 @@
     <head>
         <title>Form submit to same page</title>
         <script>
-            function showInput() {
+            function showInput() { //clicking button copies text value to box
                 document.getElementById("display").innerHTML = document.getElementById("input").value;
-            }            
+            }          
+            function showInputEnter(event) { //on enter button press, copies text value to box
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    document.getElementById("display").innerHTML = document.getElementById("input").value;
+                }                
+            }   
         </script>
     </head>
     <body>
         <form>
             <fieldset>
                 <legend>Type inside here:</legend>
-                <input type="text" id="input" name="input" placeholder="Insert Text Here">
+                <input type="text" id="input" name="input" placeholder="Insert Text Here" onkeydown="showInputEnter(event);">
             </fieldset>           
         </form>
         <input type="submit" onclick="showInput();">
