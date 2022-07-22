@@ -2,3 +2,21 @@ HTML ideas
 form/button to scroll between sections
 add radio buttons to choose between different sections
 legend on top of radio elements to provide choices
+
+
+FREECODECAMP courses
+
+Javascript
+-ES6
+-OOP and functional programming
+
+Front End Libraries
+-Bootstrap for mobile-first web pages
+-JS library jQuery
+-CSS extension SASS
+-JS library React combines HTML with JS
+-redux container for JS
+-Using react and redux together
+
+-Data visualistation
+-Interactive charts with Javascript
