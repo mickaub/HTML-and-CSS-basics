@@ -1,8 +1,34 @@
 <!DOCTYPE html>
 <head>
     <title>CSS and SVG Summary</title>
+    <style>
+        svg.sideCircle{
+            position: relative;
+            animation-name: sideMove;
+            animation-duration: 4s;
+            animation-iteration-count: infinite;
+            animation-direction: alternate;
+            animation-timing-function: ease-in-out;
+        }
+
+        @keyframes sideMove {
+            0% {left:0px; fill:yellow;}
+            100%{left:500px; fill:red;}
+        }
+    </style>
 </head>
 <body>
     <h2>SVG's</h2>
-    <p>SVG's are vector curves that keep their shape despite the resolution of the screen displaying them.</p>
+    <p>SVG's are vector curves that keep their shape despite the resolution of the screen displaying them.
+    <br>
+    Below is an example of an SVG:
+    </p>
+    <svg width="100" height="100">
+        <circle cx="50" cy="50" r="40" stroke="grey" stroke-width="2" fill="yellow" />
+    </svg>
+    <br>
+    <p> SVG's can be affected by CSS. Below is the previous example SVG moving from side to side, as well as changing from yellow to red:</p>
+    <svg class="sideCircle" width="100" height="100">
+        <circle cx="50" cy="50" r="40" stroke="grey" stroke-width="2" />
+    </svg>
 </body>
