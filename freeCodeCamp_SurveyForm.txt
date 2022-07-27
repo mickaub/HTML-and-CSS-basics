@@ -1,0 +1,57 @@
+** start of undefined **
+
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Survey Form</title>
+  <link rel="stylesheet" href="styles.css"/>
+</head>
+<body>
+  <h1 id="title">Survey Form</h1>
+  <p id="description"> This is a survey form that allows you to evaluate our website</p>
+  <form id="survey-form">
+    <fieldset>
+      <legend>Please input your information here: </legend>
+      <label id="name-label">Name: </label>
+      <input id="name" type="text" placeholder="Your name here:" required></input>
+      <br>
+      <label id="email-label">Email: </label>
+      <input id ="email" type="email" placeholder="example@example.com" required></input>
+      <p>How good is this website in your view?</p>
+      <label id="number-label">Rate from 1-10: </label>
+      <input id="number" type="number" placeholder="1-10" min="1" max="10"></input>
+      <p id="certainty">Are you sure?</p>
+      <select id="dropdown">
+        <option>Yes</option>
+        <option>No</option>
+        </select>      
+      </fieldset>
+      <fieldset>
+        <label id="recommend-label">Would you recommend this website to other people?</label>
+        <input id="radio" name="recommend" value="4" type="radio"> Yes</input>
+         <input id="radio" name="recommend" type="radio" value="5"> No</input>
+         <p id="checkbox-text"> Did you like these features?</p>
+         <input id="checkbox" type="checkbox" value="0">The heading</input>
+         <input id="checkbox" type="checkbox" value="1">The input form</input>
+         <input id="checkbox" type="checkbox" value="2">The radio form</input>
+         <p id="textboxt-heading">Did you have any other comments regarding this website?</p>
+        <textarea id="textbox" placeholder="Please insert supplemental comments here"></textarea>
+        </fieldset>
+        <fieldset>
+          <button id="submit" type="submit">Submit</button>
+          </fieldset>
+    </form>
+</body>
+</html>
+
+** end of undefined **
+
+** start of undefined **
+
+body {
+  color: black;
+  background-color: rgba(0,0,0,0.2)
+}
+
+** end of undefined **
+
