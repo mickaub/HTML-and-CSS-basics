@@ -14,17 +14,57 @@
             }
             .instruction {
                 text-align: center;
-            }            
+            }       
+            .container {
+                position: relative;
+                height:100px;
+            }     
+            .move {
+                position: absolute; /*required for animation to work*/
+                animation: mymove 5s infinite;
+                z-index: 1;
+            }
+            .glasses {
+                position: absolute;
+                animation:mymove 5s infinite;
+                z-index: 2;
+            }
+
+            @keyframes mymove {
+                0% {left: 0px;}
+                50% {left: 200px;}
+                100% {left: 0px;}
+            }
         </style>
-        <script>          
-        let faceColour = "";             
+        <script>    
+            let circleCodeHappy= "<svg id=\"face\" class=\"move\" width=\"100\" height=\"100\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"grey\" stroke-width=\"2\" fill=\"yellow\"/></svg>"; 
+            let circleCodeSad= "<svg id=\"face\" class=\"move\" width=\"100px\" height=\"100px\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"grey\" stroke-width=\"2\" fill=\"blue\"/></svg>";
+            let glassesVSmall = "<svg id=\"glasses\" class=\"glasses\" width=\"100px\" height=\"100px\"><circle cx=\"25\" cy=\"50\" r=\"5\" stroke=\"grey\" stroke-width=\"2\" fill=\"black\"/><circle cx=\"75\" cy=\"50\" r=\"5\" stroke=\"grey\" stroke-width=\"2\" fill=\"black\"/></svg>";
+            let glassesSmall = "<svg id=\"glasses\" class=\"glasses\" width=\"100px\" height=\"100px\"><circle cx=\"30\" cy=\"50\" r=\"15\" stroke=\"grey\" stroke-width=\"2\" fill=\"black\"/><circle cx=\"70\" cy=\"50\" r=\"15\" stroke=\"grey\" stroke-width=\"2\" fill=\"black\"/></svg>";
+            let glassesLarge = "<svg id=\"glasses\" class=\"glasses\" width=\"100px\" height=\"100px\"><circle cx=\"27\" cy=\"40\" r=\"20\" stroke=\"grey\" stroke-width=\"2\" fill=\"black\"/><circle cx=\"73\" cy=\"40\" r=\"20\" stroke=\"grey\" stroke-width=\"2\" fill=\"black\"/></svg>";
+            
             function reload() { //newer javascript version of reloading page function
                 window.location.reload(); 
             }
-
+            
             function face() {
+                let faceColour = document.querySelector('input[name="feeling"]:checked').value; //queryselector works to capture value of radio button that is checked
+                let glassesSize = document.querySelector('select[name="dropdown"]').value; //for dropdown use select's value instead of trying option value
+                if(faceColour==1) {
+                    document.getElementById("face").innerHTML = circleCodeHappy;}
+                else {
+                    document.getElementById("face").innerHTML = circleCodeSad;
+                }
+                if(glassesSize==1){
+                    document.getElementById("glasses").innerHTML = glassesVSmall;
+                }
+                if(glassesSize==2){
+                    document.getElementById("glasses").innerHTML = glassesSmall;
+                }
+                if(glassesSize==3){
+                    document.getElementById("glasses").innerHTML = glassesLarge;
+                }
                 
-                document.getElementById("face").innerHTML = "<svg id=\"face\" width=\"100\" height=\"100\"><circle cx=\"50\" cy=\"50\" r=\"40\" stroke=\"grey\" stroke-width=\"2\"/></svg>";
                 event.preventDefault(); //without this the circle dissapears instantly
                 
             }
@@ -41,15 +81,27 @@
                 <input type="radio" value="2" name="feeling">Sad</input>
             </fieldset>
             <fieldset>
-                <input type="submit" onclick="face()"/>
+                <label>How cool are you?</label>
+                <select id="dropdown" name="dropdown">
+                    <option name="coolness" value="1">Not cool</option>
+                    <option name="coolness" value="2">Cool</option>
+                    <option name="coolness" value="3">Very Cool</option>
+                </select> 
+            </fieldset>
+            <fieldset>
+                <input type="submit" id="submit" onclick="face()"/>
             </fieldset>            
         </form>
-        <p><span id="face"></span>&nbsp;</p>        
+        <div class="container">
+            <span id="face"></span>
+            <span id="glasses"></span>&nbsp;
+        </div>        
         <form>
             <fieldset>
                 <button type="submit" onclick="reload()">Reload</button>
             </fieldset>
         </form>
+        <div id="value"></div><!--used for testing-->
     </body>
 
 </html>
