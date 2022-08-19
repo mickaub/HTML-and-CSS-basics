@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Product Page</title>
+    <meta charset="utf-8"/>    
+    <style>
+        * {
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center; 
+  margin: 30px 0;
+}
+
+#header-img {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  display: block;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  text-align: center;
+  margin-top: 6px;
+  margin-bottom: 50px;
+  border: 2px solid black;
+  background-color: rgb(150,150,150);
+}
+
+h2 {
+  text-align: center; 
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+
+#form {
+  margin-top: 30px;
+  display: flex;
+  margin-left: 20%;
+  margin-right: 20%;  
+}
+
+p {
+  color: white;
+  text-align: center;
+}
+
+#video {
+    display: flex;
+}
+
+@media screen and (max-width: 500px) {
+  #video {
+    display: none;
+  }
+
+  p {
+    color: black;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+}
+    </style>
+  </head>
+  <body>
+    <header id="header">
+      <h1>Superb Cube</h1>
+      <image id="header-img" src="http://cdn.onlinewebfonts.com/svg/img_35506.png" width="100px"/>
+      <nav id="nav-bar">
+        <a class="nav-link" href="#shapes">Shapes</a>
+        <a class="nav-link" href="#cubes">Cubes</a>
+        <a class="nav-link" href="#superbness">Superbness</a>
+        </nav>
+    </header>
+    <h2 id="shapes">Shapes</h2>
+    <h2 id="cubes">Cubes</h2>
+    <h2 id="superbness">Superbness</h2>
+    <iframe id="video" width="560" height="315" src="https://www.youtube.com/embed/SDeVyxtdSUk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+    <p id="sorry">The Screen is too small to show the video.</p>
+    <form id="form" action="https://www.freecodecamp.com/email-submit">
+      <input id="email" placeholder="Type Email Here" type="email" name="email"></input>
+      <input id="submit" type="submit" action="https://www.freecodecamp.com/email-submit"></input>
+    </form>
+  </body>
+</html>
