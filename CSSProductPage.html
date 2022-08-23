@@ -17,6 +17,7 @@ h1 {
   margin-top: 20px;
   margin-bottom: 20px;
   display: block;
+  animation: shift 5s linear 2s infinite alternate;
 }
 
 nav {
@@ -61,6 +62,18 @@ p {
     color: black;
     margin-top: 20px;
     margin-bottom: 20px;
+  }
+}
+
+@keyframes shift {
+  0% {
+    transform: skew(0deg,0deg);
+  }
+  50% {
+    transform: skew(30deg,15deg);
+  }
+  100% {
+    transform: skew(-30deg,0deg);
   }
 }
     </style>
