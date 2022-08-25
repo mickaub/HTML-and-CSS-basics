@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Form submit to same page</title>
+        <title>Form submit to same page</title>        
         <script>
             function showInput() { //clicking button copies text value to box
+                event.preventDefault();
                 document.getElementById("display").innerHTML = document.getElementById("input").value;
             }          
             function showInputEnter(event) { //on enter button press, copies text value to box
@@ -42,6 +43,6 @@
                 <label><input id="green" type="radio" name="backgroundColor" onclick="backgroundChange(this.style.backgroundColor)"
                 style="background-color: rgb(89, 185, 89)">Green</label>
             </fieldset>    
-        </form> 
+        </form>         
     </body>
 </html>
