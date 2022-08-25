@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Form submit to same page</title>
+        <style>
+            .square{
+                background-color: rgb(0, 120, 120);
+                height: 500px;
+            }
+            .building{
+                font-size: 100px;
+            };
+        </style>
+        <script>
+            function showInput() { //clicking button copies text value to box
+                event.preventDefault();
+                document.getElementById("display").innerHTML = document.getElementById("input").value;
+            }          
+            function showInputEnter(event) { //on enter button press, copies text value to box
+                if (event.key === "Enter") {
+                    event.preventDefault();
+                    document.getElementById("display").innerHTML = document.getElementById("input").value;
+                }                
+            }   
+            function backgroundChange(bc) {
+               document.body.style.background = bc;
+            }
+        </script>
+    </head>
+    <body>
+        <form>
+            <fieldset> <!--Box around the forms inside-->
+                <legend>Type inside here:</legend>
+                <input type="text" id="input" name="input" placeholder="Insert Text Here" onkeydown="showInputEnter(event);">
+                <input type="submit" onclick="showInput();">
+            </fieldset>
+        </form>
+        <br>
+        <fieldset>
+            <label>Your input:</label>
+            <p><span id="display"></span>&nbsp;</p> <!-- &nbsp is space that is loaded, that is not a break-->
+        </fieldset>      
+        <br>    
+        <form>
+            <fieldset>
+                <legend>Select a background colour here:</legend>
+                <label><input id="white" type="radio" name="backgroundColor" onclick="backgroundChange(this.style.backgroundColor)" style="background-color:white" checked>White</label>
+                <label><input id="red" type="radio" name="backgroundColor" onclick="backgroundChange(this.style.backgroundColor)"
+                style="background-color: rgb(207, 143, 132)">Red</label>
+                <label><input id="blue" type="radio" name="backgroundColor" onclick="backgroundChange(this.style.backgroundColor)"
+                style="background-color: rgb(0, 255, 221)">Blue</label>
+                <label><input id="green" type="radio" name="backgroundColor" onclick="backgroundChange(this.style.backgroundColor)"
+                style="background-color: rgb(89, 185, 89)">Green</label>
+            </fieldset>    
+        </form> 
+        <fieldset>
+            <div class="square">
+                <image></image>
+                <p class="building">&#127974;</p>
+                <p class="building">&#127974;</p>
+            </div>
+        </fieldset>
+    </body>
+</html>
