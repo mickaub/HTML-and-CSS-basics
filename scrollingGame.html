@@ -6,10 +6,14 @@
             .square{
                 background-color: rgb(0, 120, 120);
                 height: 500px;
+                overflow: clip;
             }
-            .building{
-                font-size: 100px;
-            };
+            #repeater{
+                font-size: 100px;   
+                width: 400%;
+                display: absolute;       
+                /*margin-left: -30px; */     
+            }               
         </style>
         <script>
             function showInput() { //clicking button copies text value to box
@@ -24,7 +28,9 @@
             }   
             function backgroundChange(bc) {
                document.body.style.background = bc;
-            }
+            }                       
+           //"-30px"           
+        
         </script>
     </head>
     <body>
@@ -53,12 +59,33 @@
                 style="background-color: rgb(89, 185, 89)">Green</label>
             </fieldset>    
         </form> 
-        <fieldset>
+        <fieldset onkeydown="showInputD(event);">
             <div class="square">
                 <image></image>
-                <p class="building">&#127974;</p>
-                <p class="building">&#127974;</p>
+                <!--<svg width="200" height="200">
+                    <text font-size="40px" x="0" y="40">&#127974 &#127974</text>
+                </svg>-->
+                <p id="repeater"></p>
+                <!--<p class="building">&#127974;</p>-->               
             </div>
-        </fieldset>
+            <button onclick="marginFun()" style="height:50px;width:50px">Move</button>
+        </fieldset>       
     </body>
+    <script>/*Replacing text requires the script to be below the HTML element, when in same file*/
+        let buildingCode = "&#127974"; 
+        let multiBCode = buildingCode.repeat(20);
+        document.getElementById("repeater").innerHTML = multiBCode;            
+        let mL = 30;
+
+        function marginFun() {
+            
+            event.preventDefault();
+            mL = mL + 30;
+            document.getElementById("repeater").style.marginLeft = "-" + mL + "px";
+            mL
+            
+        }
+        
+    </script>
+
 </html>
