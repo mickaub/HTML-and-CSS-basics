@@ -91,6 +91,7 @@
                 z-index: 6;
                 fill: url(#img1);
                 margin-top: 50px;
+                transform: scaleX(-1);
             }
 
             #web {
@@ -197,20 +198,20 @@
         </form> 
         <fieldset onkeydown="showInputD(event);">
             <div class="square">  
-                <defs>
-                    <pattern id="img1" patternUnits="userSpaceOnUse" width="100" height="100">
-                      <image href="https://smallimg.pngkey.com/png/small/192-1924564_spoderman-spoderman-transparent-background.png" x="0" y="0" width="100" height="100" />
-                    </pattern>
-                  </defs>
+                
                 <svg width="200" height="350" id="crop">
-                    <!--<text font-size="40px" x="0" y="40">&#127974 &#127974</text>-->
-                    <polygon points="1 50, 120 50, 140 80, 140 100, 110 150, 140 230, 140 280, 
+                    <defs>
+                        <pattern id="img1" patternUnits="userSpaceOnUse" width="200" height="350">
+                          <image href="https://smallimg.pngkey.com/png/small/192-1924564_spoderman-spoderman-transparent-background.png" x="0" y="40" width="200" height="350" />
+                        </pattern>
+                      </defs>                    
+                    <polygon points="5 60, 80 50, 140 80, 140 100, 110 150, 140 230, 140 280, 
                     100 310, 140 330, 100 350,
-                    40 335, 40 270, 1 260" /><!--LR(x) first UD(y) second-->
+                    40 335, 40 270, 1 260, 50 150" /><!--LR(x) first UD(y) second-->
                     
                 </svg>
-                <image src="https://smallimg.pngkey.com/png/small/192-1924564_spoderman-spoderman-transparent-background.png" id="image"></image>
-                <!--<div id="web"></div>
+                <!--<image src="https://smallimg.pngkey.com/png/small/192-1924564_spoderman-spoderman-transparent-background.png" id="image"></image>
+                <div id="web"></div>
                 <div id="flagPole"></div>
                 <p id="repeater"></p>
                 <image id="blankFlag"src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/flag-united-states_1f1fa-1f1f8.png"></image>
