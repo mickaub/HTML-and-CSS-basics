@@ -11,87 +11,6 @@
                 position: relative;
                 margin-top: 0px;                
             }
-            #repeater{
-                font-size: 100px;   
-                width: 400%;
-                display: absolute; 
-                position: relative;      
-                margin-left: 0px;
-                top: -130px;                
-                z-index: 1;
-            }               
-            #enemy{
-                font-size: 250px;  
-                height: 250px;
-                width: 250px;              
-                margin-left: 500px;                
-                position: relative;    
-                margin-top: -450px;  
-                opacity: 0%;
-                z-index: 5;                          
-            } /* Make sure there are no semicolons at end of brackets, prevented animation from working*/      
-            #shakeButton {
-                opacity: 0%;               
-                text-align: center;   
-                display: absolute;      
-                margin-left: 200px;       
-            }
-
-            #firstButton {
-                opacity: 100%;               
-                text-align: center;   
-                display: absolute;      
-                margin-left: 200px;       
-            }
-            .shaking {
-                animation-name: shaking;
-                animation-duration: 3s;
-                animation-iteration-count: 1;
-                animation-direction: normal;
-                animation-timing-function: linear;                
-                position: absolute;  
-            }
-            .fall {
-                animation: fall 3s forwards;                
-            }
-            #end {
-                background-color: black;
-                height: 150%;
-                width: 100%;                
-                z-index: 10;
-                margin-top: -70%;
-                position: relative;
-                opacity: 0%;
-            }
-            .endFade {
-                animation: fade 3s linear forwards;
-            }
-            #road {
-                background: linear-gradient( /*Use background for gradient, not backgroundcolor*/
-                gray 40%,
-                yellow 50%,
-                yellow 60%,
-                gray 70%
-                );                
-                position: relative;                                                
-                z-index: 4;
-                height: 200px;
-                width: 100%;
-                top: 300px;
-                margin-left: 0px;
-            }
-            #image {
-                position: relative;                
-                top: 100;
-                left: 300;
-                z-index: 5;
-                height: 300px;
-                padding-top: 100px; 
-                transform: scaleX(-1);               
-            }
-            #img1 {
-                transform: scaleX(2.25) scaleY(1.9);
-            }
             #crop {
                 position: absolute;
                 z-index: 6;
@@ -111,34 +30,56 @@
                 rotate: -15deg;
                 opacity: 0%;
             }
-
-            .webShoot {
-                animation: stretch 3s forwards;
-            }
-
-            .flagPole {
-                
+            .flagPole {                
                 width: 10px;
                 height: 180px;
                 position: absolute;
                 z-index: 1;
                 top: 60%;
-                background:black;
-                /*margin-left: 200px;*/
+                background:black;                
                 margin-top: -181px;
             }
-
-            #flagPole2 {
-                width: 10px;
+            .blankFlag {
+                width: 300px;
                 height: 200px;
                 position: absolute;
-                z-index: 3;
-                top: 60%;
-                background:black;
-                margin-left: 400px;
-                margin-top: -200px;
+                z-index: 1;
+                top: 60%;                                
+                margin-top: -300px;
             }
-
+            #road {
+                background: linear-gradient( /*Use background for gradient, not backgroundcolor*/
+                gray 40%,
+                yellow 50%,
+                yellow 60%,
+                gray 70%
+                );                
+                position: relative;                                                
+                z-index: 4;
+                height: 200px;
+                width: 100%;
+                top: 300px;
+                margin-left: 0px;
+            }
+            #repeater{
+                font-size: 100px;   
+                width: 400%;
+                display: absolute; 
+                position: relative;      
+                margin-left: 0px;
+                top: -130px;                
+                z-index: 1;
+            }               
+            #enemy{
+                font-size: 250px;  
+                height: 250px;
+                width: 250px;              
+                margin-left: 500px;                
+                position: relative;    
+                margin-top: -450px;  
+                opacity: 0%;
+                z-index: 5;                          
+            } /* Make sure there are no semicolons at end of brackets, prevented animation from working*/      
             #endText{           
                 position: absolute;                  
                 opacity: 0%;
@@ -148,34 +89,59 @@
                 margin-left: 400px;       
                 color: white;                        
             }
-
-            .endFadeText {
+            #end {
+                background-color: black;
+                height: 150%;
+                width: 100%;                
+                z-index: 10;
+                margin-top: -70%;
+                position: relative;
+                opacity: 0%;
+            }
+            #firstButton {
+                opacity: 100%;               
+                text-align: center;   
+                display: absolute;      
+                margin-left: 200px;       
+            }
+            #shakeButton {
+                opacity: 0%;               
+                text-align: center;   
+                display: absolute;      
+                margin-left: 200px;       
+            }
+            .shaking {
+                animation-name: shaking;
+                animation-duration: 3s;
+                animation-iteration-count: 1;
+                animation-direction: normal;
+                animation-timing-function: linear;                
+                position: absolute;  
+            }
+            .fall {
+                animation: fall 3s forwards;                
+            }            
+            .endFade {
                 animation: fade 3s linear forwards;
-            }
-
-            .blankFlag {
-                width: 300px;
-                height: 200px;
-                position: absolute;
-                z-index: 1;
-                top: 60%;                                
-                margin-top: -300px;
-            }
-
+            }            
+            #img1 {
+                transform: scaleX(2.25) scaleY(1.9);
+            }   
+            .webShoot {
+                animation: stretch 3s forwards;
+            } 
             @keyframes shaking {
                 0% {padding-top:0px;}
                 25% {padding-top:20px;}
                 75% {padding-top:-50px;}
                 100% {padding-top:0;}
             }
-
             @keyframes stretch {
                 0% {transform:scaleX(1) translateX(0) rotate(0deg); opacity:0%;}                
                 25% {transform:scaleX(10) translateX(20px) rotate(0deg); opacity:100%;}
                 75% {transform:scaleX(10) translateX(20px) rotate(0deg); opacity:100%;}
                 100% {transform:scaleX(1) translateX(0px) rotate(0deg); opacity:0%;}
             }
-
             @keyframes fall {
                 0% {rotate: 0deg;}
                 100% {rotate:90deg;}
@@ -192,7 +158,7 @@
                 <h1 style="text-align:center;"> THE LEGEND OF SPODERMAN</h1>
             </fieldset>    
         </form> 
-        <fieldset onkeydown="showInputD(event);">
+        <fieldset>
             <div class="square">  
                 <svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="300" height="633" id="crop">    
                     <defs>
@@ -202,15 +168,15 @@
                     </defs> 
                     <path stroke-width="3.0" stroke-linecap="butt" stroke-opacity="1.0" stroke="rgb(0, 0, 0)" stroke-linejoin="round" d=" M 77.374, 19.585 67.374, 19.564 57.374, 19.543 54.333, 19.537 47.922, 27.211 41.511, 34.885 35.100, 42.560 28.688, 50.234 22.277, 57.908 15.866, 65.583 9.455, 73.257 6.121, 77.248 8.381, 86.989 10.640, 96.730 12.900, 106.472 15.159, 116.213 17.419, 125.954 19.678, 135.696 21.484, 143.478 31.003, 146.542 40.522, 149.605 50.041, 152.668 59.561, 155.731 69.080, 158.795 78.599, 161.858 88.119, 164.921 97.638, 167.984 98.451, 168.246 93.573, 176.976 88.695, 185.705 83.817, 194.435 78.939, 203.164 74.061, 211.894 69.183, 220.623 64.305, 229.353 59.427, 238.083 58.670, 239.438 55.556, 248.941 52.442, 258.444 49.328, 267.947 46.215, 277.450 43.101, 286.952 39.987, 296.455 38.014, 302.478 38.192, 312.476 38.370, 322.475 38.548, 332.473 38.725, 342.471 38.903, 352.470 39.081, 362.468 39.256, 372.316 31.181, 378.214 23.105, 384.111 15.029, 390.009 6.953, 395.906 5.407, 397.036 6.227, 407.002 7.048, 416.968 7.869, 426.935 8.689, 436.901 9.510, 446.867 9.878, 451.337 19.177, 455.015 28.475, 458.694 37.774, 462.372 46.692, 465.900 55.373, 460.937 64.055, 455.974 72.737, 451.012 81.418, 446.049 82.325, 445.530 81.513, 435.563 80.702, 425.596 79.890, 415.629 79.078, 405.662 78.266, 395.695 77.510, 386.413 82.260, 377.613 87.010, 368.813 88.972, 365.179 90.630, 375.040 92.288, 384.902 93.946, 394.764 95.604, 404.625 97.262, 414.487 98.920, 424.348 100.577, 434.210 102.235, 444.072 102.620, 446.359 102.050, 456.343 101.480, 466.326 100.910, 476.310 100.340, 486.294 99.770, 496.278 99.200, 506.261 98.631, 516.245 98.061, 526.229 97.491, 536.213 96.921, 546.196 96.310, 556.897 88.100, 562.605 79.889, 568.314 71.679, 574.022 63.468, 579.731 55.258, 585.440 47.047, 591.148 38.837, 596.857 35.685, 599.048 43.233, 605.607 50.782, 612.167 58.330, 618.726 64.321, 623.932 74.294, 623.202 84.267, 622.472 94.240, 621.742 104.214, 621.011 114.187, 620.281 124.160, 619.551 134.134, 618.821 144.107, 618.091 147.220, 617.863 157.172, 616.888 167.125, 615.914 177.077, 614.939 187.214, 613.947 196.225, 609.611 205.236, 605.275 214.247, 600.939 218.178, 599.048 219.079, 589.088 219.979, 579.129 220.880, 569.170 221.780, 559.210 222.107, 555.587 222.367, 545.590 222.626, 535.594 222.885, 525.597 223.144, 515.600 223.403, 505.604 223.662, 495.607 223.921, 485.611 224.180, 475.614 224.439, 465.617 224.698, 455.621 224.727, 454.500 233.928, 458.417 243.128, 462.335 252.329, 466.253 258.560, 468.906 267.230, 463.923 275.900, 458.940 284.570, 453.957 292.742, 449.261 292.990, 439.264 293.239, 429.267 293.488, 419.270 293.737, 409.273 293.985, 399.276 294.051, 396.632 287.548, 389.036 281.044, 381.440 277.025, 376.746 275.591, 366.849 274.156, 356.953 272.721, 347.056 271.287, 337.160 269.852, 327.263 268.418, 317.367 268.168, 315.648 266.965, 305.720 265.762, 295.793 264.559, 285.866 263.356, 275.938 262.153, 266.011 260.950, 256.084 259.747, 246.156 258.560, 236.368 254.870, 227.074 251.180, 217.779 247.490, 208.485 245.696, 203.966 240.095, 195.681 234.494, 187.397 234.188, 186.944 227.533, 179.480 220.878, 172.016 214.223, 164.552 207.568, 157.088 206.757, 156.179 200.267, 148.571 193.777, 140.963 187.639, 133.767 182.832, 124.998 178.024, 116.230 173.217, 107.461 168.410, 98.692 163.603, 89.924 158.795, 81.155 153.988, 72.386 149.497, 64.195 145.085, 55.221 142.076, 49.101 134.939, 42.096 127.803, 35.091 120.666, 28.087 113.529, 21.082 111.982, 19.563 101.983, 19.596 91.983, 19.629 86.644, 19.647 77.374, 19.585 " />        
                 </svg> 
-                <div id="web"></div>
-                <div id="poles">
-                    <div class="flagPole" style="margin-left:0px;"></div>
-                    <div class="flagPole" style="margin-left:400px;"></div>
-                    <div class="flagPole" style="margin-left:800px;"></div>
-                    <div class="flagPole" style="margin-left:1200px;"></div>
-                    <div class="flagPole" style="margin-left:1600px;"></div>
-                    <div class="flagPole" style="margin-left:2000px;"></div>
-                </div>
+            <div id="web"></div>
+            <div id="poles">
+                <div class="flagPole" style="margin-left:0px;"></div>
+                <div class="flagPole" style="margin-left:400px;"></div>
+                <div class="flagPole" style="margin-left:800px;"></div>
+                <div class="flagPole" style="margin-left:1200px;"></div>
+                <div class="flagPole" style="margin-left:1600px;"></div>
+                <div class="flagPole" style="margin-left:2000px;"></div>
+            </div>
                 <div id="flags">
                     <image class="blankFlag" style="margin-left: 0px;"src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/flag-united-states_1f1fa-1f1f8.png"></image>
                     <image class="blankFlag" style="margin-left: 400px;"src="https://emojipedia-us.s3.amazonaws.com/source/skype/289/flag-united-states_1f1fa-1f1f8.png"></image>
@@ -227,7 +193,7 @@
             </div>           
             <div>
                 <button onclick="marginFun()" style="height:50px;width:100px" id="firstButton">Move</button>
-                <button onclick="shake()" style="height:50px;width:100px" class="shakeButton" id="shakeButton">Shake</button>
+                <button onclick="shake()" style="height:50px;width:100px" id="shakeButton">Web</button>
             </div>
         </fieldset>       
         <fieldset>            
