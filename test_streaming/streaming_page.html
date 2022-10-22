@@ -2,6 +2,18 @@
 <html>
 <head>
     <title>Streaming Page</title>
+    <style>
+      body {
+        background-color: azure;
+        animation-name: backg;
+        animation-duration: 60s;
+      }
+      @keyframes backg {
+        0% {background-color: azure;}
+        50% {background-color: turquoise;}
+        100% {background-color: azure;}
+      }
+    </style>
     <script> //changes background colour
         function bgChange(bg) {
         document.body.style.background = bg;
@@ -27,27 +39,20 @@
       kohaku and gumi eating 1:22 https://www.youtube.com/watch?v=S3HllS574Fs 62sr
       lemon chan walking 0:24 https://www.youtube.com/watch?v=Q0avht7EPUU 38sr
       red birb walking 0:23 https://www.youtube.com/watch?v=ObczcvxQ-Go 15sr
+      Returning soon 15seconds before reload
 
     -->
 </head>
-<body onload="startTime()">    
+<body onload="startTime(),fixedTime()">    
     
     <h2>Repeating video playlist</h2>
     <div id="txt"></div>
-    <div id="seconds_color"></div>        
-    <div id="changingSquare">
-    </div>
-    <div id="text"></div>
-    <!--<input name="MyColorPicker"
-      type="color"
-      id="MyColorPicker" />
-    <br>
-    <div id="ytplayer"></div>
-    <iframe src="https://www.youtube.com/embed/sGF6bOi1NfA" width="560" height="315" allowfullscreen="allowfullscreen"></iframe>-->
+    <div id="seconds"></div>   
+    <div id="text"></div>    
     <div id="videoPlayer"></div>
-    <div id="pleaseWait"></div>
-    <br>
-    <div id="no" onload="fixedTime()"></div>
+    <div id="no" onload=></div>
+    <div id="square"></div>
+    <div id="start"></div>
     
     <script>
         
@@ -60,29 +65,16 @@
           let s = today.getSeconds();
           m = checkTime(m);
           s = checkTime(s);
-          document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
-          setTimeout(startTime, 1000);                   
+          document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;           
+          document.getElementById('seconds').innerHTML = m%10 + ":" + s;                
+          setTimeout(startTime, 1000); 
           //changing object based on time                   
-          if (s <= 30) {
-                squareColour = "rgb(0,100,0)";
-                second_time = "First Half";
-              }
-            else {
-                second_time = "Second Half";
-                squareColour = "rgb(200,200,200)";             
-            }
-          if (s>52){
-            document.getElementById("pleaseWait").innerHTML = "please wait";            
-          }
-          else {
-            document.getElementById("pleaseWait").innerHTML = "";   
-          }
-            document.getElementById("seconds_color").innerHTML = second_time;
-            document.getElementById('changingSquare').style.backgroundColor = squareColour;
-            //document.getElementById("Myelement").style.backgroundColor = changing_box.backgroundColor;
+          
+         
         }
-        document.getElementById('changingSquare').style.width = "300px";
-        document.getElementById('changingSquare').style.height = "300px"; 
+        document.getElementById('square').style.width = "300px";
+        document.getElementById('square').style.height = "300px"; 
+        let delay = new String;
         
         function fixedTime() {
                     let videoChoice = new String;
@@ -92,22 +84,31 @@
                     let m = today.getMinutes();
                     let s = today.getSeconds();
                     m = checkTime(m);
-                    s = checkTime(s);
-                    setTimeout(fixedTime, 1000);
-                                        
-                   /* let mv1 = "hN9-ZdWiKdI";
-                    mv1.duration = 218;//269 start51 newduration 218
-                    let mv2 = "HcUScOp_fys";
-                    mv2.duration = 244;//266 start22 newduration 244
-                    let ko1 = "C0MN-gf2ooM";
-                    ko1.duration = 57;
-                    let ko2 = "Xm1qdXMrH3c";
-                    ko2.duration = 55; //26s remain
-          */
+                    s = checkTime(s);  
+                    let rem = (m%10)*60 + s;  
+                    let rem2 = 0;               
+                    document.getElementById('start').innerHTML = rem;
                     
+      let videoChange = document.getElementById("videoPlayer");        
+      let currentVideo = "https://www.youtube.com/embed/VIDEO_ID?"+"start="+ s +
+      "&playlist="+"S3HllS574Fs,ObczcvxQ-Go"; 
+      ;
+      videoChange.innerHTML = "<iframe src=\"" + currentVideo +"\" width=\"560\" height=\"315\" allowfullscreen=\"allowfullscreen\"></iframe>";
+                    
+                                        
+                  /*  white birb bottle cap 4:30 https://www.youtube.com/embed/hN9-ZdWiKdI 330sr
+      white bird summond whats wrong 0:44 https://www.youtube.com/watch?v=7GZ77Dzg4mk 286sr
+      wish you a merry birbmas 1:23 https://www.youtube.com/watch?v=L9jFkR2tIx0 203sr
+      gumi and kiwi talking 0:59  https://www.youtube.com/watch?v=SkPoiowueGw 144sr
+      kohaku and gumi eating 1:22 https://www.youtube.com/watch?v=S3HllS574Fs 62sr
+      lemon chan walking 0:24 https://www.youtube.com/watch?v=Q0avht7EPUU 38sr
+      red birb walking 0:23 https://www.youtube.com/watch?v=ObczcvxQ-Go 15sr
+                    */
+      
                     //changing object based on time         
-                    if (m%10<2){
-                      videoChoice = mv1;
+                    if (rem < 150){
+                      videoChoice = "https://www.youtube.com/embed/hN9-ZdWiKdI";
+                      rem2 = 600 - rem;
                     }
                     if (m%10<5 && m%10>=2){
                       videoChoice = ko2;
@@ -122,10 +123,8 @@
                       //document.getElementById("Myelement").style.backgroundColor = changing_box.backgroundColor;
                   }
         
-                  let videoChange = document.getElementById("videoPlayer");        
-        let currentVideo = "https://www.youtube.com/embed/hN9-ZdWiKdI" 
-        ;
-        videoChange.innerHTML = "<iframe src=\"" + currentVideo +"\" width=\"560\" height=\"315\" allowfullscreen=\"allowfullscreen\"></iframe>";
+                  
+        
 
         
         
