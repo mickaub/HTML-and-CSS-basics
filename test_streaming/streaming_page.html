@@ -12,30 +12,29 @@
         }
         
     </script>
+    <!--
+      10 minutes
+      changing background
+      duration left showing before change
+      list of videos showing
+      reload at end of 10 minutes
+
+      10minutes
+      white birb bottle cap 4:30 https://www.youtube.com/embed/hN9-ZdWiKdI 330sr
+      white bird summond whats wrong 0:44 https://www.youtube.com/watch?v=7GZ77Dzg4mk 286sr
+      wish you a merry birbmas 1:23 https://www.youtube.com/watch?v=L9jFkR2tIx0 203sr
+      gumi and kiwi talking 0:59  https://www.youtube.com/watch?v=SkPoiowueGw 144sr
+      kohaku and gumi eating 1:22 https://www.youtube.com/watch?v=S3HllS574Fs 62sr
+      lemon chan walking 0:24 https://www.youtube.com/watch?v=Q0avht7EPUU 38sr
+      red birb walking 0:23 https://www.youtube.com/watch?v=ObczcvxQ-Go 15sr
+
+    -->
 </head>
-<body onload="startTime()">
-    <h2>Change background color</h2>
-    <p>Mouse over the squares!</p>
-        
-    <table style="width:300px;height:100px"> <!--table with elements that change background colour-->
-      <tr>
-        <td onmouseover="bgChange(this.style.backgroundColor)"         
-        style="background-color:Khaki">
-        </td>
-        <td onmouseover="bgChange(this.style.backgroundColor)" 
-        style="background-color:PaleGreen">
-        </td>
-        <td onmouseover="bgChange(this.style.backgroundColor)"         
-        style="background-color:Silver">
-        </td>
-      </tr>
-    </table>
-    <br>
+<body onload="startTime()">    
     
-    <h2>JavaScript Clock</h2>
+    <h2>Repeating video playlist</h2>
     <div id="txt"></div>
-    <div id="seconds_color"></div>    
-    <!--<div id="Myelement"></div>-->
+    <div id="seconds_color"></div>        
     <div id="changingSquare">
     </div>
     <div id="text"></div>
@@ -54,8 +53,7 @@
         
         let squareColour = "";
         
-        function startTime() {
-                    
+        function startTime() {                    
           const today = new Date();
           let h = today.getHours();
           let m = today.getMinutes();
@@ -63,11 +61,8 @@
           m = checkTime(m);
           s = checkTime(s);
           document.getElementById('txt').innerHTML =  h + ":" + m + ":" + s;
-          setTimeout(startTime, 1000);
-          
-          
-          //changing object based on time         
-          
+          setTimeout(startTime, 1000);                   
+          //changing object based on time                   
           if (s <= 30) {
                 squareColour = "rgb(0,100,0)";
                 second_time = "First Half";
@@ -76,7 +71,6 @@
                 second_time = "Second Half";
                 squareColour = "rgb(200,200,200)";             
             }
-
           if (s>52){
             document.getElementById("pleaseWait").innerHTML = "please wait";            
           }
@@ -93,7 +87,6 @@
         function fixedTime() {
                     let videoChoice = new String;
                     let c = "c";
-
                     const today = new Date();
                     let h = today.getHours();
                     let m = today.getMinutes();
@@ -102,7 +95,7 @@
                     s = checkTime(s);
                     setTimeout(fixedTime, 1000);
                                         
-                    let mv1 = "hN9-ZdWiKdI";
+                   /* let mv1 = "hN9-ZdWiKdI";
                     mv1.duration = 218;//269 start51 newduration 218
                     let mv2 = "HcUScOp_fys";
                     mv2.duration = 244;//266 start22 newduration 244
@@ -110,7 +103,7 @@
                     ko1.duration = 57;
                     let ko2 = "Xm1qdXMrH3c";
                     ko2.duration = 55; //26s remain
-          
+          */
                     
                     //changing object based on time         
                     if (m%10<2){
